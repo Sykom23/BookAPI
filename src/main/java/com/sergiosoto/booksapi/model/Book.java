@@ -38,8 +38,7 @@ public class Book {
 
     }
 
-    public Book(Long id, String title, String author, String isbn, String publisher, int yearOfPublishing, String genre, int pageCount, double price) {
-        this.id = id;
+    public Book( String title, String author, String isbn, String publisher, int yearOfPublishing, String genre, int pageCount, double price) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;

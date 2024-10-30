@@ -26,7 +26,7 @@ public class BookService {
         if (isInvalidIsbn(cleanedIsbn)) {
             throw new IllegalArgumentException("Invalid ISBN format. It must be a 13-digit ISBN starting with '978' or '979'.");
         }
-        return cleanedIsbn.substring(0, 3) + "-" + cleanedIsbn.charAt(3) + "-" + cleanedIsbn.substring(4, 10) + "-" + cleanedIsbn.substring(10, 12) + "-" + cleanedIsbn.charAt(12);
+        return cleanedIsbn.substring(0, 3) + "-" + cleanedIsbn.charAt(3) + "-" + cleanedIsbn.substring(4, 7) + "-" + cleanedIsbn.substring(7, 12) + "-" + cleanedIsbn.charAt(12);
     }
 
     public ResponseEntity<Object> createBook(Book book) {
@@ -67,7 +67,7 @@ public class BookService {
 
     private boolean isInvalidIsbn(String isbn) {
         String cleanedIsbn = isbn.replaceAll("[-\\s]", "");
-        String isbn13Regex = "^97[89][0-9]{10}$";
+        String isbn13Regex = "^97[8-9][0-9]{10}$";
         return !cleanedIsbn.matches(isbn13Regex);
     }
 
